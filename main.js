@@ -138,7 +138,7 @@ var AppRoutingModule = /** @class */ (function () {
     }
     AppRoutingModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
-            imports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"].forRoot(routes)],
+            imports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"].forRoot(routes, { useHash: true })],
             exports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]]
         })
     ], AppRoutingModule);
@@ -309,7 +309,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"button\" (mouseover)=\"onMouseOver()\" (mouseout)=\"onMouseOut()\" >\r\n  <a routerLink={{data.url}} (click)=\"onClick()\">\r\n    <div class={{display1}}>\r\n       <img src={{data.src1}}  alt=\"\"  >\r\n    </div>\r\n    <div class={{display2}}>\r\n      <img src={{data.src2}}  alt=\"\"  >\r\n    </div>\r\n    <div class=\"{{display3}} \">\r\n      {{data.name}}\r\n    </div>\r\n\r\n\r\n\r\n  </a>\r\n\r\n</div>\r\n"
+module.exports = "<div class=\"button\" (mouseover)=\"onMouseOver()\" (mouseout)=\"onMouseOut()\" >\r\n  <a routerLink={{data.url}} (click)=\"onClick()\">\r\n    <div class={{display1}}>\r\n       <img src={{data.src1}}  alt=\"\"  >\r\n    </div>\r\n    <div class={{display2}}>\r\n      <img src={{data.src2}}  alt=\"\"  >\r\n    </div>\r\n    <div class=\"{{display3}} \">\r\n      {{data.name}}\r\n    </div>\r\n  </a>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -508,7 +508,7 @@ var AuthGuard = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--<div class=\"container\">-->\r\n  <!--<h1 >Login Form</h1>-->\r\n  <!--<form #loginForm=\"ngForm\"-->\r\n        <!--(ngSubmit)=\"onSubmit($event, loginForm)\">-->\r\n    <!--<div class=\"form-group\">-->\r\n      <!--<label for=\"email\">Email</label>-->\r\n      <!--<input type=\"text\" class=\"form-control\" id=\"email\"  name=\"email\" minlength=\"4\" [(ngModel)]=\"model.email\" appForbiddenName=\"bob\" #name=\"ngModel\" required>-->\r\n      <!--<div [hidden]=\"name.valid || name.pristine\"-->\r\n           <!--class=\"alert alert-danger\">-->\r\n        <!--<div *ngIf=\"name.errors && (name.errors || {}).required\">-->\r\n          <!--Email is required.-->\r\n        <!--</div>-->\r\n        <!--<div *ngIf=\"name.errors && (name.errors || {}).minlength\">-->\r\n          <!--Name is too short.-->\r\n        <!--</div>-->\r\n      <!--</div>-->\r\n      <!--{{name.errors | json}}-->\r\n    <!--</div>-->\r\n\r\n    <!--<div class=\"form-group\">-->\r\n      <!--<label for=\"password\">password</label>-->\r\n      <!--<input type=\"text\" class=\"form-control\" id=\"password\" name=\"password\"  [(ngModel)]=\"model.password\" required #spy>-->\r\n\r\n    <!--</div>-->\r\n    <!--{{loginForm.valid}}-->\r\n    <!--<button type=\"submit\" class=\"btn btn-success\" [disabled]=\"!loginForm.valid\">Submit</button>-->\r\n    <!--<button type=\"button\" class=\"btn btn-primary\" (click)=\"clearForm(loginForm);  loginForm.reset()\" >Reset</button>-->\r\n    <!--<button type=\"button\" class=\"btn btn-primary\" (click)=\"testButton()\">Test</button>-->\r\n  <!--</form>-->\r\n\r\n  <!--{{diagnostic}}-->\r\n<!--</div>-->\r\n<div class=\"bg\">\r\n  <div id=\"container\">\r\n    <h1>Log In</h1>\r\n    <form #loginForm=\"ngForm\" (ngSubmit)=\"onSubmit($event, loginForm)\">\r\n      <input type=\"email\" name=\"email\" placeholder=\"E-mail\" minlength=\"4\" [(ngModel)]=\"model.email\" required>\r\n      <div class=\"error\">{{this.errorEmail}}</div>\r\n      <input type=\"password\" name=\"password\" placeholder=\"Password\" [(ngModel)]=\"model.password\" required>\r\n      <div class=\"error\">{{this.errorPass}}</div>\r\n      <a>Forgot password?</a>\r\n      <button [disabled]=\"!loginForm.valid\">Log in</button>\r\n      <a routerLink=\"/registration\">Don't have an account? Register</a>\r\n      <!--<button type=\"button\" class=\"btn btn-primary\" (click)=\"testButton()\">Test</button>-->\r\n    </form>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"bg\">\r\n  <div id=\"container\">\r\n    <h1>Log In</h1>\r\n    <form #loginForm=\"ngForm\" (ngSubmit)=\"onSubmit($event, loginForm)\">\r\n      <input type=\"email\" name=\"email\" placeholder=\"E-mail\" minlength=\"4\" [(ngModel)]=\"model.email\" required>\r\n      <div class=\"error\">{{this.errorEmail}}</div>\r\n      <input type=\"password\" name=\"password\" placeholder=\"Password\" [(ngModel)]=\"model.password\" required>\r\n      <div class=\"error\">{{this.errorPass}}</div>\r\n      <button [disabled]=\"!loginForm.valid\">Log in</button>\r\n      <a routerLink=\"/registration\">Don't have an account? Register</a>\r\n    </form>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -536,7 +536,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/auth.service */ "./src/app/core/services/auth.service.ts");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 var __assign = (undefined && undefined.__assign) || Object.assign || function(t) {
     for (var s, i = 1, n = arguments.length; i < n; i++) {
         s = arguments[i];
@@ -557,41 +556,30 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
-
 var LoginComponent = /** @class */ (function () {
-    function LoginComponent(auth, router, http) {
+    function LoginComponent(auth, router) {
         this.auth = auth;
         this.router = router;
-        this.http = http;
         this.model = {};
         this.submitted = false;
     }
     LoginComponent.prototype.onSubmit = function (e, loginForm) {
         var _this = this;
-        console.log(loginForm.value);
+        // console.log(loginForm.value);
         this.submitted = true;
         this.auth.loginUser(__assign({}, loginForm.value)).subscribe(function (res) {
-            console.log(res);
+            // console.log(res);
             _this.auth.setToken(res.access_token);
             _this.auth.setUser(res.user);
             _this.router.navigateByUrl('/ingridients');
         }, function (err) {
             _this.errorPass = 'The given data is invalid!';
-            console.log(err);
+            // console.log(err);
         });
     };
     LoginComponent.prototype.clearForm = function (loginForm) {
         console.log(loginForm);
         this.model = {};
-    };
-    LoginComponent.prototype.testButton = function () {
-        var body = { 'name': 'name', 'email': 'name@test1.com', 'password': '111111', 'password_confirmation': '111111' };
-        var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpHeaders"]()
-            .append('Content-Type', 'application/json')
-            .append('Accept', 'application/json');
-        console.log(headers);
-        return this.http.post('http://refrigerator-alevel.tk/api/auth/register', body, { headers: headers })
-            .subscribe(function (data) { console.log(data); }, function (err) { console.log(err); });
     };
     Object.defineProperty(LoginComponent.prototype, "diagnostic", {
         get: function () { return JSON.stringify(this.model); },
@@ -606,7 +594,7 @@ var LoginComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./login.component.html */ "./src/app/core/login/login.component.html"),
             styles: [__webpack_require__(/*! ./login.component.scss */ "./src/app/core/login/login.component.scss")]
         }),
-        __metadata("design:paramtypes", [_services_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"], _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"]])
+        __metadata("design:paramtypes", [_services_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]])
     ], LoginComponent);
     return LoginComponent;
 }());
@@ -727,29 +715,12 @@ var ProfileComponent = /** @class */ (function () {
     ProfileComponent.prototype.subName = function (e, changeNameForm) {
         var _this = this;
         console.log(changeNameForm.value);
-        this.prof.NameChange(__assign({}, changeNameForm.value)).subscribe(function (res) {
-            console.log(res);
-            _this.auth.updateUserEmail(res.email, res.name);
-        }, function (err) {
-            console.log(err);
-            var x = JSON.stringify(err.error.errors.email);
-            console.log(x);
-            _this.errorEmail = x.slice(1, -1);
-            console.log(_this.errorEmail);
-        });
+        this.prof.NameChange(__assign({}, changeNameForm.value)).subscribe(function (res) { _this.auth.updateUserEmail(res.email, res.name); }, function (err) { var x = JSON.stringify(err.error.errors.email); _this.errorEmail = x.slice(1, -1); });
     };
     ProfileComponent.prototype.subPass = function (e, changePassForm) {
         var _this = this;
         console.log(changePassForm.value);
-        this.prof.PasswordChange(__assign({}, changePassForm.value)).subscribe(function (res) {
-            console.log(res);
-            _this.auth.updateUserPass(res.password);
-        }, function (err) {
-            console.log(err);
-            var x = JSON.stringify(err.error.errors.password);
-            _this.errorPass = x.slice(1, -1);
-            console.log(_this.errorPass);
-        });
+        this.prof.PasswordChange(__assign({}, changePassForm.value)).subscribe(function (res) { _this.auth.updateUserPass(res.password); }, function (err) { var x = JSON.stringify(err.error.errors.password); _this.errorPass = x.slice(1, -1); });
     };
     ProfileComponent.prototype.ngOnInit = function () {
     };
@@ -837,12 +808,12 @@ var RegistrationComponent = /** @class */ (function () {
         var _this = this;
         this.submitted = true;
         this.auth.registerUser(__assign({}, registerForm.value)).subscribe(function (res) {
-            console.log(res);
+            // console.log(res);
             _this.router.navigateByUrl('/login');
         }, function (err) {
             _this.error1 = JSON.parse(JSON.stringify(err.error.errors));
             _this.error = Object.values(_this.error1);
-            console.log(err);
+            // console.log(err);
         });
     };
     RegistrationComponent.prototype.ngOnInit = function () {
@@ -1477,7 +1448,7 @@ var NavComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"wrapper\">\r\n  <div class=\"bg\">\r\n<div *ngIf=\"recipe$ | async as recipe\">\r\n  <div class=\"title\">  <a (click)=\"gotoRecipeList(recipe)\">\r\n   <img src=\"../../../assets/img/arrow.png\" alt=\"\">\r\n  </a>{{recipe.name}}\r\n  </div>\r\n  <div class=\"flexwrap\">\r\n      <div class=\"photo\"><img src={{recipe.image}}></div>\r\n      <div class=\"description\">{{recipe.recipeInstruction}}</div>\r\n  </div>\r\n  <div class=\"ingr\">\r\n    <ul>\r\n        <h2>Ингридиенты для приготовления блюда</h2>\r\n      <li class=\"requiredIngridients\" *ngFor=\"let subItem of recipe.recipeIngredient;\">\r\n\r\n        <div class=\"ingridient\">{{subItem.name}}</div>\r\n        <div class=\"amountOfIngridient\">{{(subItem.count ? subItem.count : 'по вкусу')+' '+(subItem.measure ? subItem.measure : '')}}</div>\r\n      </li>\r\n    </ul>\r\n  </div>\r\n\r\n</div>\r\n</div>\r\n</div>\r\n"
+module.exports = "<div class=\"wrapper\">\r\n  <div class=\"bg\">\r\n<div *ngIf=\"recipe$ | async as recipe\">\r\n  <div class=\"title\">  <a (click)=\"gotoRecipeList(recipe)\">\r\n   <img src=\"../../../assets/img/arrow.png\" alt=\"\">\r\n  </a>{{recipe.name}}\r\n  </div>\r\n  <div class=\"flexwrap\">\r\n      <div class=\"photo\"><img src={{recipe.image}}></div>\r\n      <div class=\"description\">{{recipe.recipeInstruction}}</div>\r\n  </div>\r\n  <div class=\"ingr\">\r\n    <ul>\r\n        <h2>Ингридиенты для приготовления блюда</h2>\r\n      <li class=\"requiredIngridients\" *ngFor=\"let subItem of recipe.recipeIngredient;\">\r\n        <div class=\"ingridient\">{{subItem.name}}</div>\r\n        <div class=\"amountOfIngridient\">{{(subItem.count ? subItem.count : 'по вкусу')+' '+(subItem.measure ? subItem.measure : '')}}</div>\r\n      </li>\r\n    </ul>\r\n  </div>\r\n\r\n</div>\r\n</div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1638,7 +1609,7 @@ var RecipeListComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"wrapper\">\r\n  <div class=\"search_container\">\r\n    <p class=\"search_title\">\r\n    </p>\r\n    <input [(ngModel)]=\"searchText\" class=\"search_input\" type=\"text\" placeholder=\"Search\" >\r\n    <button [routerLink]=\"['/recipies']\" >All recipes</button>\r\n    <button [routerLink]=\"['/recommended']\" disabled>Recommended recipes</button>\r\n  </div>\r\n  <p *ngIf=\"this.recipies===[]\">Looks like there is no recommended recipes. But you can find what you want in all recipes!</p>\r\n  <ul>\r\n    <li [routerLink]=\"['/recommended', item.id-1]\" (click)=\"clickHandler(item.id)\" *ngFor=\"let item of recipies| search: searchText\">\r\n      <div class=\"itemRecipe\">\r\n        <img src={{item.picture}}>\r\n        <div class=\"bg\">\r\n        </div>\r\n        <div class=\"name\">\r\n          <div class=\"title\" >{{item.name}}</div>\r\n        </div>\r\n      </div>\r\n    </li>\r\n  </ul>\r\n</div>\r\n<hr>\r\n"
+module.exports = "<div class=\"wrapper\">\r\n  <div class=\"search_container\">\r\n    <p class=\"search_title\">\r\n    </p>\r\n    <input [(ngModel)]=\"searchText\" class=\"search_input\" type=\"text\" placeholder=\"Search\" >\r\n    <button [routerLink]=\"['/recipies']\" >All recipes</button>\r\n    <button [routerLink]=\"['/recommended']\" disabled>Recommended recipes</button>\r\n  </div>\r\n  <p *ngIf=\"this.recipies===false\">Looks like there is no recommended recipes. But you can find what you want in all recipes!</p>\r\n  <ul>\r\n    <li [routerLink]=\"['/recommended', item.id-1]\" (click)=\"clickHandler(item.id)\" *ngFor=\"let item of recipies| search: searchText\">\r\n      <div class=\"itemRecipe\">\r\n        <img src={{item.picture}}>\r\n        <div class=\"bg\">\r\n        </div>\r\n        <div class=\"name\">\r\n          <div class=\"title\" >{{item.name}}</div>\r\n        </div>\r\n      </div>\r\n    </li>\r\n  </ul>\r\n</div>\r\n<hr>\r\n"
 
 /***/ }),
 
@@ -1689,7 +1660,7 @@ var ReccomendedComponent = /** @class */ (function () {
     ReccomendedComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.ingr.getRecipes()
-            .subscribe(function (res) { _this.recipies = res.data; console.log(res); }, function (err) { return console.log(err); });
+            .subscribe(function (res) { _this.recipies = res.data; }, function (err) { return console.log(err); });
         // console.log(recipies);
     };
     __decorate([
@@ -1994,7 +1965,7 @@ var IngridientsService = /** @class */ (function () {
     IngridientsService.prototype.createIngridient = function (id, title, titleAmount, titleMeasure) {
         var ingridient = new _models_product_model__WEBPACK_IMPORTED_MODULE_1__["IngridientRes"](id, title, titleAmount + ' ' + titleMeasure);
         this.ingridients.push(ingridient);
-        console.log(this.ingridients);
+        // console.log(this.ingridients);
         return this.http.post('http://refrigerator-alevel.tk/api/refrigerator/ingredients', { 'ingredient_id': id, 'amount': titleAmount + ' ' + titleMeasure }, { headers: this.auth.AuthHeaders() })
             .subscribe(function (res) { return console.log(res); });
     };
